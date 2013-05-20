@@ -119,6 +119,12 @@ module.exports = (grunt) ->
           dest: ".tmp/<%= core.pkg.name %>-<%= core.pkg.version %>.zip"
         ]
 
+      themeupdater:
+        files: [
+          src: ["<%= replace.dist.files.dest %>updater.json"]
+          dest: "<%= replace.dist.files.dest %><%= core.pkg.name %>.json"
+        ]
+
     replace:
       dist:
         options:
@@ -131,7 +137,7 @@ module.exports = (grunt) ->
           expand: true
           flatten: true
           cwd: "<%= core.app %>/"
-          src: ["templates/<%= core.pkg.name %>.json"]
+          src: ["templates/updater.json"]
           dest: "/Users/sparanoid/Dropbox/Sites/sparanoid.com/lab/wordpress/"
         ]
 
